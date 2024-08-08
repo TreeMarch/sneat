@@ -29,11 +29,17 @@
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
                                         data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
+                                        <a class="dropdown-item" href="{{ route('users.edit', $user->id) }}"><i
                                                 class="bx bx-edit-alt me-2"></i>
                                             Edit</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-2"></i>
-                                            Delete</a>
+                                      <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="dropdown-item" onclick="return confirm('Are you sure you want to delete this user?')">
+                                          <i class="bx bx-trash me-2"></i> Delete
+                                        </button>
+                                      </form>
+
                                     </div>
                                 </div>
                             </td>

@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Http\Controllers\showAllController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboard\Analytics;
@@ -47,7 +48,8 @@ use App\Http\Controllers\tables\Basic as TablesBasic;
 use \App\Http\Controllers\ShowAllControllerUi as ShowAllControllerUi;
 use App\Http\Controllers\AddUserControllerUi as AddUserControllerUi;
 use App\Http\Controllers\AddUserController as AddUserController;
-
+use App\Http\Controllers\EditUserController;
+use App\Http\Controllers\DeleteUserController;
 // Main Page Route
 Route::get('/', [Analytics::class, 'index'])->name('dashboard-analytics');
 
@@ -122,4 +124,12 @@ Route::get('/tables/users', [showAllController::class, 'showAll']);
 //Add new user
 Route::get('/tables/add-user-ui', [AddUserControllerUi::class, 'index']);
 Route::post('/tables/add-user', [AddUserController::class, 'index']);
+
+//Edit
+Route::get('/users/{id}/edit', [EditUserController::class, 'edit'])->name('users.edit');
+Route::put('/users/{id}', [EditUserController::class, 'update'])->name('users.update');
+
+//Delete
+Route::delete('/users/{id}', [DeleteUserController::class, 'destroy'])->name('users.destroy');
+
 

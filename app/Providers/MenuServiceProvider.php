@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\tables\Basic;
 use Illuminate\Support\Facades\View;
 use Illuminate\Routing\Route;
 

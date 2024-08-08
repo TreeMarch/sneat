@@ -7,16 +7,13 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
- */
-class UserFactory extends Factory
-{
-    /**
-     * The current password being used by the factory.
-     */
-    protected static ?string $password;
 
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ */
+class AdminFactory extends Factory
+{
     /**
      * Define the model's default state.
      *
@@ -27,18 +24,15 @@ class UserFactory extends Factory
       $dt = Carbon::now();
       $dateNow = $dt->toDateTimeString();
         return [
-          'account_id' => "141601" . Str::random(4),
-          'user_name' => "user01",
-          'user_password' => Hash::make("user01"),
+          'admin_name' => "admin-".Str::random(2),
+          'admin_password' => Hash::make("user01"),
           'first_name' => fake()->firstName(),
           'last_name' => fake()->lastName(),
           'email' => fake()->unique()->safeEmail(),
-          'phone_number' => '0846262588',
-          'favourite' => 'Reading',
+          'phone' => '0846262588',
           'birth' => "$dateNow",
           'salt' => 'salt',
-          'current_coin' => 100,
-          'is_admin' => false,
+          'is_admin' => true,
           'status' => 1,
           'created_at' => "$dateNow",
           'updated_at' => "$dateNow",
@@ -47,15 +41,5 @@ class UserFactory extends Factory
           'updated_by' => "user01",
           'deleted_by' => "",
         ];
-    }
-
-    /**
-     * Indicate that the model's email address should be unverified.
-     */
-    public function unverified(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'email_verified_at' => null,
-        ]);
     }
 }

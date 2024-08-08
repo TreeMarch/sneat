@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\showAllController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboard\Analytics;
 use App\Http\Controllers\layouts\WithoutMenu;
@@ -44,6 +45,8 @@ use App\Http\Controllers\form_layouts\VerticalForm;
 use App\Http\Controllers\form_layouts\HorizontalForm;
 use App\Http\Controllers\tables\Basic as TablesBasic;
 use \App\Http\Controllers\ShowAllControllerUi as ShowAllControllerUi;
+use App\Http\Controllers\AddUserControllerUi as AddUserControllerUi;
+use App\Http\Controllers\AddUserController as AddUserController;
 
 // Main Page Route
 Route::get('/', [Analytics::class, 'index'])->name('dashboard-analytics');
@@ -112,5 +115,10 @@ Route::get('/', [Analytics::class, 'index'])->name('dashboard-analytics');
 
 //Back end
 
+//Show all user
 Route::get('/tables/basic', [ShowAllControllerUi::class, 'index'])->name('tables-basic');
 Route::get('/tables/users', [showAllController::class, 'showAll']);
+
+//Add new user
+Route::get('/tables/add-user', [AddUserControllerUi::class, 'index']);
+

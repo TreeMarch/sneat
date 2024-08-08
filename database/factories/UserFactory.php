@@ -43,8 +43,8 @@ class UserFactory extends Factory
           'created_at' => "$dateNow",
           'updated_at' => "$dateNow",
           'deleted_at' => "$dateNow",
-          'created_by' => "user01",
-          'updated_by' => "user01",
+          'created_by' => "user_name",
+          'updated_by' => "user_name",
           'deleted_by' => "",
         ];
     }

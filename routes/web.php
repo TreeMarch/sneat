@@ -120,5 +120,6 @@ Route::get('/tables/basic', [ShowAllControllerUi::class, 'index'])->name('tables
 Route::get('/tables/users', [showAllController::class, 'showAll']);
 
 //Add new user
-Route::get('/tables/add-user', [AddUserControllerUi::class, 'index']);
+Route::get('/tables/add-user-ui', [AddUserControllerUi::class, 'index']);
+Route::post('/tables/add-user', [AddUserController::class, 'index']);
 

@@ -28,14 +28,14 @@ class UserFactory extends Factory
       $dateNow = $dt->toDateTimeString();
         return [
           'account_id' => "141601" . Str::random(4),
-          'user_name' => "user01",
-          'user_password' => Hash::make("user01"),
-          'first_name' => fake()->firstName(),
-          'last_name' => fake()->lastName(),
-          'email' => fake()->unique()->safeEmail(),
-          'phone_number' => '0846262588',
-          'favourite' => 'Reading',
-          'birth' => "$dateNow",
+          'user_name' => "user01", //
+          'user_password' => Hash::make("user01"),//
+          'first_name' => fake()->firstName(),//
+          'last_name' => fake()->lastName(),//
+          'email' => fake()->unique()->safeEmail(),//
+          'phone_number' => '0846262588',//
+          'favourite' => 'Reading',//
+          'birth' => "$dateNow",//
           'salt' => 'salt',
           'current_coin' => 100,
           'is_admin' => false,
@@ -43,8 +43,8 @@ class UserFactory extends Factory
           'created_at' => "$dateNow",
           'updated_at' => "$dateNow",
           'deleted_at' => "$dateNow",
-          'created_by' => "user_name",
-          'updated_by' => "user_name",
+          'created_by' => "user_name",// LAY TU USER NAME NG DUNG NHAP VAO
+          'updated_by' => "user_name",// LAY TU USER NAME NG DUNG NHAP VAO
           'deleted_by' => "",
         ];
     }

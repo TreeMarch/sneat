@@ -6,10 +6,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Scout\Attributes\SearchUsingPrefix;
+use Laravel\Scout\Searchable;
+use Laravel\Scout\Attributes\SeachUsingPrefix;
 
 class User extends Authenticatable
 {
-  use HasFactory, Notifiable;
+  use HasFactory, Notifiable,Searchable;
 
   /**
    * The attributes that are mass assignable.
@@ -17,9 +20,11 @@ class User extends Authenticatable
    * @var array<int, string>
    */
   protected $fillable = [
-    'name',
+    'account_id',
+    'user_name',
     'email',
-    'password',
+    'phone_number',
+    'status'
   ];
 
   /**
@@ -44,4 +49,28 @@ class User extends Authenticatable
       'password' => 'hashed',
     ];
   }
+
+  #[SearchUsingPrefix(['status'])]
+  public function toSearchableArray(){
+    return [
+      'user_name' => $this->user_name,
+      'phone_number' => $this->phone_number,
+      'email' => $this->email,
+    ];
+  }
+
+  public function scopeSearch($query){
+    if($key = request()->key){
+      $query = $query->where('user_name','like','%'.$key.'%')
+        ->orWhere('phone_number','like','%'.$key.'%')
+        ->orWhere('email','like','%'.$key.'%')
+      ;
+    }elseif (empty($key)) {
+      $query = User::paginate(10);
+    }else{
+      return $query;
+    }
+  }
+
+
 }

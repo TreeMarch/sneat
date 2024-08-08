@@ -1,0 +1,12 @@
+.hero {
+    width: 100%;
+    min-height: 70vh;
+    position: relative;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+.about{
+    padding: 0;
+}

@@ -1,0 +1,1 @@
+const countryside = document.getElementById("countryside")

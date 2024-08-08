@@ -4,6 +4,6 @@
 
 <!-- Content -->
 @yield('content')
-<!--/ Content -->
+
 
 @endsection

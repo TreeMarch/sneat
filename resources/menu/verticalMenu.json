@@ -16,6 +16,7 @@
           "target": "_blank"
         },
         {
+<<<<<<< HEAD
           "url": "https://demos.themeselection.com/sneat-bootstrap-html-laravel-admin-template/demo-1/laravel/user-management",
           "name": "Add User",
           "slug": "laravel-example-user-management",
@@ -30,6 +31,10 @@
         {
           "url": "/reading_story",
           "name": "Reading Story",
+=======
+          "url": "",
+          "name": "Add User",
+>>>>>>> origin/master
           "slug": "laravel-example-user-management",
           "target": "_blank"
         }

@@ -11,7 +11,10 @@ class Basic extends Controller
 {
   public function index(Request $request)
   {
+<<<<<<< HEAD
 //    dd($request->all());
+=======
+>>>>>>> origin/master
     $users = ShowAll::showAll();
     return view('content.tables.tables-basic',compact('users'));
   }

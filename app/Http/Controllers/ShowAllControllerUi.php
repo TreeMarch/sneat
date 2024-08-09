@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\showAllController as ShowAll;
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 use Illuminate\Support\Carbon;
 use App\Models\User;
 
@@ -22,6 +23,14 @@ class ShowAllControllerUi extends Controller
 
     }
 //    $users = ShowAll::showAll();
+=======
+
+class ShowAllControllerUi extends Controller
+{
+  public function index()
+  {
+    $users = ShowAll::showAll();
+>>>>>>> origin/master
     return view('content.tables.tables-basic',compact('users'));
   }
 }

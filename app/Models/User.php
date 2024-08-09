@@ -20,11 +20,23 @@ class User extends Authenticatable
    * @var array<int, string>
    */
   protected $fillable = [
+<<<<<<< HEAD
     'account_id',
     'user_name',
     'email',
     'phone_number',
     'status'
+=======
+    'user_name',
+    'email',
+    'password',
+    'user_password',
+    'first_name',
+    'last_name',
+    'phone_number',
+    'favourite',
+    'birth',
+>>>>>>> origin/master
   ];
 
   /**
@@ -49,6 +61,7 @@ class User extends Authenticatable
       'password' => 'hashed',
     ];
   }
+<<<<<<< HEAD
 
   #[SearchUsingPrefix(['status'])]
   public function toSearchableArray(){
@@ -73,4 +86,6 @@ class User extends Authenticatable
   }
 
 
+=======
+>>>>>>> origin/master
 }

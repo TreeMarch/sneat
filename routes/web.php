@@ -1,6 +1,11 @@
 <?php
 
+<<<<<<< HEAD
 use App\Http\Controllers\summarize\Summarize;
+=======
+
+use App\Http\Controllers\showAllController;
+>>>>>>> origin/master
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboard\Analytics;
 use App\Http\Controllers\layouts\WithoutMenu;
@@ -45,8 +50,15 @@ use App\Http\Controllers\form_layouts\VerticalForm;
 use App\Http\Controllers\form_layouts\HorizontalForm;
 use App\Http\Controllers\tables\Basic as TablesBasic;
 use \App\Http\Controllers\ShowAllControllerUi as ShowAllControllerUi;
+<<<<<<< HEAD
 use \App\Http\Controllers\SortByControllerUi as SortByControllerUi;
 use \App\Http\Controllers\reading_story\ReadStoryController;
+=======
+use App\Http\Controllers\AddUserControllerUi as AddUserControllerUi;
+use App\Http\Controllers\AddUserController as AddUserController;
+use App\Http\Controllers\EditUserController;
+use App\Http\Controllers\DeleteUserController;
+>>>>>>> origin/master
 // Main Page Route
 Route::get('/', [Analytics::class, 'index'])->name('dashboard-analytics');
 
@@ -99,6 +111,7 @@ Route::get('/', [Analytics::class, 'index'])->name('dashboard-analytics');
 
 // // icons
 // Route::get('/icons/boxicons', [Boxicons::class, 'index'])->name('icons-boxicons');
+<<<<<<< HEAD
 
 // // form elements
 // Route::get('/forms/basic-inputs', [BasicInput::class, 'index'])->name('forms-basic-inputs');
@@ -120,5 +133,36 @@ Route::get('/tables/users', [SortByControllerUi::class, 'index'])->name('tables-
 Route::get('/summarize',[Summarize::class, 'index'])->name('summarize');
 Route::get('/reading_story',[ReadStoryController::class, 'index']);
 
+=======
+
+// // form elements
+// Route::get('/forms/basic-inputs', [BasicInput::class, 'index'])->name('forms-basic-inputs');
+// Route::get('/forms/input-groups', [InputGroups::class, 'index'])->name('forms-input-groups');
+
+// // form layouts
+// Route::get('/form/layouts-vertical', [VerticalForm::class, 'index'])->name('form-layouts-vertical');
+// Route::get('/form/layouts-horizontal', [HorizontalForm::class, 'index'])->name('form-layouts-horizontal');
+
+// // tables
+// Route::get('/tables/basic', [TablesBasic::class, 'index'])->name('tables-basic');
+// ---------------------------------------------------------------------------------------------------------
+
+//Back end
+
+//Show all user
+Route::get('/tables/basic', [ShowAllControllerUi::class, 'index'])->name('tables-basic');
+Route::get('/tables/users', [showAllController::class, 'showAll']);
+
+//Add new user
+Route::get('/tables/add-user-ui', [AddUserControllerUi::class, 'index']);
+Route::post('/tables/add-user', [AddUserController::class, 'index']);
+
+//Edit
+Route::get('/users/{id}/edit', [EditUserController::class, 'edit'])->name('users.edit');
+Route::put('/users/{id}', [EditUserController::class, 'update'])->name('users.update');
+
+//Delete
+Route::delete('/users/{id}', [DeleteUserController::class, 'destroy'])->name('users.destroy');
+>>>>>>> origin/master
 
 
